@@ -1,0 +1,66 @@
+{
+    "name": "MotionMatchInputs",
+    "maps": [
+        {
+            "name": "Level Ground Walking",
+            "id": "19137053-94a9-437b-9a85-a78f46262f6b",
+            "actions": [
+                {
+                    "name": "Velocity",
+                    "type": "Value",
+                    "id": "add7fb24-69ac-4584-b7b6-27f8a0103339",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Heading",
+                    "type": "Value",
+                    "id": "b00d4946-bb18-4f15-8656-62be41088fbd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ed3533e5-681c-4f55-83f3-9d592b54323d",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Velocity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "238b49de-6c2b-4b29-8fd2-b6ce0988a033",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Heading",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

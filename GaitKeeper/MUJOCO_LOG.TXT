@@ -1,0 +1,6 @@
+Thu Sep 21 14:21:19 2023
+ERROR: Unknown transmission type -1074790400
+
+Thu Sep 21 14:27:09 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 49. The simulation is unstable. Time = 1.4000.
+

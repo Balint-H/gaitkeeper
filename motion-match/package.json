@@ -1,0 +1,9 @@
+{
+  "name": "com.github.motion-match",
+  "displayName": "Motion Matching",
+  "version": "0.1.0",
+  "unity": "2021.2",
+  "description": "Scripts for generating intent and motion based on it, as well as rudimentary inertialization for discontinuities",
+  "type": "",
+  "dependencies": {}
+}
