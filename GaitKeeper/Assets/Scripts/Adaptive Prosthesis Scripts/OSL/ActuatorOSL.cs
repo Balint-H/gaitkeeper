@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Mujoco;
 using Mujoco.Extensions;
+using ModularAgents;
 
 namespace GaitLab
 {
@@ -140,7 +141,7 @@ namespace GaitLab
         private readonly double kneeVelocity;
 
         [SerializeField]
-        private MjContactForceAggregator forceSensor;
+        private GRFObservationSource forceSensor;
 
         unsafe private void Awake()
         {
@@ -157,7 +158,7 @@ namespace GaitLab
 
         unsafe private void UpdateTorque(object sender, MjStepArgs e)
         {
-            if (ActiveBehaviour.ShouldTransition() && PhaseTime>minPhaseTime && autoTransition)
+            if (ActiveBehaviour.ShouldTransition() && PhaseTime > minPhaseTime && autoTransition)
             {
                 switchCount++;
 
@@ -168,7 +169,7 @@ namespace GaitLab
                     lastSwitchTime = Time.timeAsDouble;
                     switchCount = 0;
                 }
-                
+
             }
             GaitPhaseBehaviour curBehaviour = ActiveBehaviour;
 
@@ -177,27 +178,28 @@ namespace GaitLab
             double sign = (invertAnkleAngle ? -1 : 1);
 
 
-            AnkleAngle = sign * ((e.data->qpos[ankleJoint.QposAddress])* Mathf.Rad2Deg + ankleAngleOffset);
-            KneeVelocity = (invertKneeAngle ? -1 : 1) *  (e.data->qvel[kneeJoint.DofAddress]) * Mathf.Rad2Deg;
+            AnkleAngle = sign * ((e.data->qpos[ankleJoint.QposAddress]) * Mathf.Rad2Deg + ankleAngleOffset);
+            KneeVelocity = (invertKneeAngle ? -1 : 1) * (e.data->qvel[kneeJoint.DofAddress]) * Mathf.Rad2Deg;
             AnkleVelocity = sign * (e.data->qvel[ankleJoint.DofAddress]) * Mathf.Rad2Deg;
-            FAxial =  forceSensor.SensorReading;
+            (_, var sensorReading) = forceSensor.GetMeanGRF();
+            FAxial = Vector3.Dot(kneeJoint.transform.rotation * Vector3.forward, sensorReading);
 
 
 
             /*            var force = Math.Clamp(curBehaviour.k*posError - curBehaviour.b*AnkleVelocity, -maxForce, maxForce) * Mathf.Deg2Rad;
                         Torque = force;*/
 
-            var posError = sign*(curBehaviour.theta - AnkleAngle - Time.fixedDeltaTime*AnkleVelocity)*Mathf.Deg2Rad;
-            var velError = sign*(-curBehaviour.b * AnkleVelocity) *Mathf.Deg2Rad;
+            var posError = sign * (curBehaviour.theta - AnkleAngle - Time.fixedDeltaTime * AnkleVelocity) * Mathf.Deg2Rad;
+            var velError = sign * (-curBehaviour.b * AnkleVelocity) * Mathf.Deg2Rad;
 
             double M = MjState.GetInertiaWithMatrixIndex(inertiaMatrixIndex, e);
-            double biasForce = sign*e.data->qfrc_bias[ankleJoint.DofAddress];
-            double passiveForce = sign*e.data->qfrc_passive[ankleJoint.DofAddress];
+            double biasForce = sign * e.data->qfrc_bias[ankleJoint.DofAddress];
+            double passiveForce = sign * e.data->qfrc_passive[ankleJoint.DofAddress];
 
             double k = curBehaviour.k * impedanceSettings.stiffnessScale + impedanceSettings.stiffnessOffset;
             double b = curBehaviour.b * impedanceSettings.dampingScale + impedanceSettings.dampingOffset;
 
-            double force = Math.Clamp( SingleSPD(posError, velError, k, b, biasForce, M, Time.fixedDeltaTime), -maxForce, maxForce);
+            double force = Math.Clamp(SingleSPD(posError, velError, k, b, biasForce, M, Time.fixedDeltaTime), -maxForce, maxForce);
             Torque = sign * force;
 
             //print($"behav: {curBehaviour.phase}, b:{curBehaviour.b}, theta:{curBehaviour.theta}, k:{curBehaviour.k}");
@@ -284,7 +286,7 @@ namespace GaitLab
 
             private double thetaInitial;
             private double FInitial;
-            public override double theta { get => Math.Clamp( Eq4(device.Eq4C, device.FAxial, FInitial, device.bodyMass * 0.981, thetaInitial, tunedThetaFinal), tunedThetaFinal,thetaInitial); }
+            public override double theta { get => Math.Clamp(Eq4(device.Eq4C, device.FAxial, FInitial, device.bodyMass * 0.981, thetaInitial, tunedThetaFinal), tunedThetaFinal, thetaInitial); }
 
             public LateStanceBehaviour(ActuatorOSL device) : base(device)
             {
@@ -422,7 +424,7 @@ namespace GaitLab
         {
             var pTerm = Kp * posError;
             var dTerm = Kd * velError;
-            var spdQacc = (pTerm + dTerm - biasForces)/ (M + Kd * dt);
+            var spdQacc = (pTerm + dTerm - biasForces) / (M + Kd * dt);
             var tau = pTerm + dTerm - Kd * spdQacc * dt;
             return tau;
         }

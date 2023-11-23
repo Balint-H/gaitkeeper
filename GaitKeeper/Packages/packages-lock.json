@@ -27,7 +27,7 @@
         "com.github.mj-unity-extensions": "0.1.0",
         "org.mujoco": "2.3.1"
       },
-      "hash": "da85ae90edd2e3b1dc7ac7f74074c3f1811145ec"
+      "hash": "284321469c88dd6f8b6a7a45ec99b3e2c838d771"
     },
     "com.github.modular-agents.shared-assets": {
       "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/shared-assets#develop",
