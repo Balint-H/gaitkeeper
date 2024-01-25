@@ -1,0 +1,22 @@
+{
+    "name": "UnityHdf5",
+    "rootNamespace": "UnityHdf5",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "EmbeddedLinux",
+        "LinuxStandalone64",
+        "CloudRendering"
+    ],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll",
+        "HDF.PInvoke.dll",
+        "MathNet.Numerics.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

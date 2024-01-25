@@ -10,8 +10,8 @@ using static Mujoco.MjScene;
 using MathNet.Numerics.LinearAlgebra;
 using ModularAgents.DReCon;
 using Mujoco.Extensions;
-using ModularAgents.MotorControl.Mujoco;
-using MathNet.Numerics.RootFinding;
+using static ModularAgents.MathNet.Numerics.LinearAlgebra.LinAlgUtils;
+using Unity.VisualScripting;
 
 namespace ModularAgents.MotorControl
 {
@@ -27,28 +27,34 @@ namespace ModularAgents.MotorControl
         protected List<MjBaseJoint> hardExcludeList;
 
         [SerializeField]
+        bool differential;
+
+        [SerializeField]
         bool useHeuristic;
 
         public int ActionSpaceSize => 3 * ActiveJoints.DofSum();
 
         [SerializeField]
-        List<double> activePosGains;
+        public List<double> activePosGains;
 
         Vector<double> posGains;
-
+        public Vector<double> GetPosGainVector() => posGains;
 
         public override ActionSpec ActionSpec => new ActionSpec(ActionSpaceSize);
 
         [SerializeField]
-        List<double> activeVelGains;
+        public List<double> activeVelGains;
 
         Vector<double> velGains;
+        public Vector<double> GetVelGainVector() => velGains;
 
 
         [SerializeField]
-        List<double> activeAngleOffsets;
+        public List<double> activeAngleOffsets;
 
         Vector<double> angleOffsets;
+        public Vector<double> GetAngleOffsetVector() => angleOffsets;
+
 
         Vector<double> angleOffsetDefaults;
 
@@ -79,6 +85,9 @@ namespace ModularAgents.MotorControl
 
         [SerializeField]
         bool updateAlone;
+
+        [SerializeField]
+        bool updateParams;
 
         [SerializeField]
         double modulationScale;
@@ -113,10 +122,10 @@ namespace ModularAgents.MotorControl
             velGainMatrix = Matrix<double>.Build.DiagonalOfDiagonalVector(velGains);
 
 
-            //Vector<double> biasVector = (Vector<double>.Build.DenseOfArray(MjState.GetSubBias(dofAddresses, e))*0 + Vector<double>.Build.DenseOfArray(MjState.GetSubPassive(dofAddresses, e)))*0;
-            //Matrix<double> inertiaMatrix = MjState.GetSubInertiaArray(inertiaSubMatrixMap, dofAddresses.Length, e).ToSquareMatrix(dofAddresses.Length);
+            Vector<double> biasVector = (Vector<double>.Build.DenseOfArray(MjState.GetSubBias(dofAddresses, e)) + Vector<double>.Build.DenseOfArray(MjState.GetSubPassive(dofAddresses, e)));
+            Matrix<double> inertiaMatrix = MjState.GetSubInertiaArray(inertiaSubMatrixMap, dofAddresses.Length, e).ToSquareMatrix(dofAddresses.Length);
 
-            var generalizedForces = ComputePD(posError, velError, posGainMatrix, velGainMatrix);
+            var generalizedForces = ComputeSPD(posError, velError, posGainMatrix, velGainMatrix, biasVector, inertiaMatrix, dt);
 
             foreach ((var dofIdx, var force) in dofAddresses.Zip(generalizedForces, Tuple.Create))
             {
@@ -126,20 +135,21 @@ namespace ModularAgents.MotorControl
                 }
 
                 e.data->qfrc_applied[dofIdx] = Math.Clamp(force, -maxForce, maxForce);
-                foreach (var exc in hardExcludeList)
-                {
-                    e.data->qfrc_applied[exc.DofAddress] = 0;
-                }
+            }
+            foreach (var exc in hardExcludeList)
+            {
+                e.data->qfrc_applied[exc.DofAddress] = 0;
             }
         }
 
         unsafe public void ApplyActions(float[] actions)
         {
-#if UNITY_EDITOR
-            posGainDefaults = ArrayToActiveAndSoftVector(activePosGains.ToArray());
-            velGainDefaults = ArrayToActiveAndSoftVector(activeVelGains.ToArray());
-            angleOffsetDefaults = ArrayToActiveAndSoftVector(activeAngleOffsets.ToArray());
-#endif
+            if (updateParams)
+            {
+                posGainDefaults = ArrayToActiveAndSoftVector(activePosGains.ToArray());
+                velGainDefaults = ArrayToActiveAndSoftVector(activeVelGains.ToArray());
+                angleOffsetDefaults = ArrayToActiveAndSoftVector(activeAngleOffsets.ToArray());
+            }
             posGains = posGainDefaults + modulationScale * ArrayToActiveAndSoftVector(actions[..(actions.Length / 3)]);
             velGains = velGainDefaults + modulationScale * ArrayToActiveAndSoftVector(actions[(actions.Length / 3)..(2 * actions.Length / 3)]);
             angleOffsets = angleOffsetDefaults + ArrayToActiveAndSoftVector(actions[(2 * actions.Length / 3)..(3 * actions.Length / 3)]);
@@ -179,7 +189,12 @@ namespace ModularAgents.MotorControl
             velGains = ArrayToActiveAndSoftVector(kd);
         }
 
-        public unsafe void Start()
+        private void Start()
+        {
+            MjState.ExecuteAfterMjStart(MjStart);
+        }
+
+        public unsafe void MjStart()
         {
             if (waitBeforeSubscribe)
             {

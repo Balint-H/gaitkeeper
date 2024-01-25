@@ -1,30 +1,66 @@
-Thu Sep 21 14:21:19 2023
-ERROR: Unknown transmission type -1074790400
+Mon Dec 11 13:07:19 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 29.3930.
 
-Thu Sep 21 14:27:09 2023
-WARNING: Nan, Inf or huge value in QACC at DOF 49. The simulation is unstable. Time = 1.4000.
+Mon Dec 11 13:07:25 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
 
-Mon Oct 30 13:48:49 2023
-WARNING: Nan, Inf or huge value in QACC at DOF 50. The simulation is unstable. Time = 12.4080.
+Mon Dec 11 13:07:26 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
 
-Mon Oct 30 13:50:26 2023
-WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 1.2560.
+Mon Dec 11 13:07:27 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
 
-Mon Oct 30 13:50:33 2023
-WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0560.
+Mon Dec 11 13:07:27 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
 
-Mon Oct 30 13:58:17 2023
-WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 14.2720.
+Mon Dec 11 13:07:27 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
 
-Mon Oct 30 15:16:47 2023
-WARNING: Nan, Inf or huge value in QACC at DOF 234. The simulation is unstable. Time = 10.4720.
+Mon Dec 11 13:07:27 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
 
-Mon Oct 30 15:17:54 2023
-WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 61.3200.
+Mon Dec 11 13:07:27 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
 
-Fri Nov  3 14:31:13 2023
-ERROR: mj_stackAlloc: stack overflow: max = 36700160, available = 8820096, requested = 9092016 (ne = 304, nf = 0, nefc = 1500, ncon = 287)
+Mon Dec 11 13:07:28 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
 
-Fri Nov  3 14:32:51 2023
-ERROR: mj_stackAlloc: stack overflow: max = 36700160, available = 7877984, requested = 9249576 (ne = 304, nf = 0, nefc = 1526, ncon = 282)
+Mon Dec 11 13:07:31 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:31 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:31 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:34 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:34 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:34 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:34 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:34 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:34 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:35 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:35 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:35 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Mon Dec 11 13:07:35 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
 

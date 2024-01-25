@@ -1,0 +1,9 @@
+{
+  "name": "com.github.hdf5",
+  "displayName": "HDF5",
+  "version": "0.1.0",
+  "unity": "2021.2",
+  "description": "Scripts for loading and saving HDF5 data for Unity",
+  "type": "",
+  "dependencies": {}
+}

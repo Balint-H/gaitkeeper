@@ -59,7 +59,22 @@ namespace GaitLab
 
         private double lastSwitchTime;
 
+        [Serializable]
+        public class FsmSwitchArgs: EventArgs
+        {
+            public GaitPhase OldPhase;
+            public GaitPhase NewPhase => (GaitPhase)(((int)OldPhase+1)%4);
+            public double SwitchTime;
+            public double KneeAngle;
+            public double AnkleAngle;
+            public double AxialForce;
+        }
+
+        public event EventHandler<FsmSwitchArgs> FsmSwitchEvent;
+
         public double AnkleAngle { get; private set; }
+        public double KneeAngle { get; private set; }
+        
 
         public double Torque { get; private set; }
         private double AnkleVelocity { get; set; }
@@ -143,6 +158,13 @@ namespace GaitLab
         [SerializeField]
         private GRFObservationSource forceSensor;
 
+
+        [SerializeField]
+        private float[] defaultSwitchTimes;
+        public FsmSwitchArgs SwitchArgs => new FsmSwitchArgs { AnkleAngle = AnkleAngle, KneeAngle = KneeAngle, AxialForce = FAxial, OldPhase =
+            (GaitPhase)((4+((int)phase-1))%4), SwitchTime = defaultSwitchTimes[(int)phase]
+        };
+
         unsafe private void Awake()
         {
             MjScene.Instance.ctrlCallback += UpdateTorque;
@@ -158,12 +180,22 @@ namespace GaitLab
 
         unsafe private void UpdateTorque(object sender, MjStepArgs e)
         {
+            double sign = (invertAnkleAngle ? -1 : 1);
+
+
+            AnkleAngle = sign * ((e.data->qpos[ankleJoint.QposAddress]) * Mathf.Rad2Deg + ankleAngleOffset);
+            KneeAngle = sign * ((e.data->qpos[kneeJoint.QposAddress]) * Mathf.Rad2Deg);
+            KneeVelocity = (invertKneeAngle ? -1 : 1) * (e.data->qvel[kneeJoint.DofAddress]) * Mathf.Rad2Deg;
+            AnkleVelocity = sign * (e.data->qvel[ankleJoint.DofAddress]) * Mathf.Rad2Deg;
+            (_, var sensorReading) = forceSensor.lastPosAndVec;
+            FAxial = Mathf.Clamp(Vector3.Dot(kneeJoint.transform.forward, sensorReading), 0, Mathf.Infinity);
             if (ActiveBehaviour.ShouldTransition() && PhaseTime > minPhaseTime && autoTransition)
             {
                 switchCount++;
 
                 if (switchCount >= switchConfidence)
                 {
+                    FsmSwitchEvent?.Invoke(this, new FsmSwitchArgs { AnkleAngle = AnkleAngle, KneeAngle = KneeAngle, AxialForce = FAxial, OldPhase = phase, SwitchTime = Time.timeAsDouble - lastSwitchTime });
                     phase = (GaitPhase)(((int)phase + 1) % 4);
                     ActiveBehaviour.OnEnterState();
                     lastSwitchTime = Time.timeAsDouble;
@@ -174,18 +206,6 @@ namespace GaitLab
             GaitPhaseBehaviour curBehaviour = ActiveBehaviour;
 
             if (inertiaMatrixIndex == -1) inertiaMatrixIndex = MjState.GetInertiaMatrixIndex(ankleJoint.DofAddress, e);
-
-            double sign = (invertAnkleAngle ? -1 : 1);
-
-
-            AnkleAngle = sign * ((e.data->qpos[ankleJoint.QposAddress]) * Mathf.Rad2Deg + ankleAngleOffset);
-            KneeVelocity = (invertKneeAngle ? -1 : 1) * (e.data->qvel[kneeJoint.DofAddress]) * Mathf.Rad2Deg;
-            AnkleVelocity = sign * (e.data->qvel[ankleJoint.DofAddress]) * Mathf.Rad2Deg;
-            (_, var sensorReading) = forceSensor.GetMeanGRF();
-            FAxial = Vector3.Dot(kneeJoint.transform.rotation * Vector3.forward, sensorReading);
-
-
-
             /*            var force = Math.Clamp(curBehaviour.k*posError - curBehaviour.b*AnkleVelocity, -maxForce, maxForce) * Mathf.Deg2Rad;
                         Torque = force;*/
 

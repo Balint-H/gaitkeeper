@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.github.hdf5": {
+      "version": "file:C:/Unity_Repos/Unity_3D/gaitkeeper/hdf5",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.github.mj-unity-extensions": {
       "version": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#develop",
       "depth": 0,
@@ -16,7 +22,7 @@
       "dependencies": {
         "com.unity.ml-agents": "2.2.1"
       },
-      "hash": "da85ae90edd2e3b1dc7ac7f74074c3f1811145ec"
+      "hash": "4608d9b3c45456cc3f6af27c285a0b6d25fc1cb5"
     },
     "com.github.modular-agents.mujoco": {
       "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#develop",
@@ -27,7 +33,7 @@
         "com.github.mj-unity-extensions": "0.1.0",
         "org.mujoco": "2.3.1"
       },
-      "hash": "284321469c88dd6f8b6a7a45ec99b3e2c838d771"
+      "hash": "15118cbc3a9953edf896b72c59bb189fb362b02f"
     },
     "com.github.modular-agents.shared-assets": {
       "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/shared-assets#develop",
@@ -244,11 +250,11 @@
       "url": "https://packages.unity.com"
     },
     "org.mujoco": {
-      "version": "https://github.com/deepmind/mujoco.git?path=unity#2.3.7",
+      "version": "https://github.com/Balint-H/mujoco.git?path=unity#feature/unity-hmap-dyn",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "c9246e1f5006379d599e0bcddf159a8616d31441"
+      "hash": "2c024164eab56ccea4c4785c4c7e27f64254c916"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

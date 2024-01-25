@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.github.hdf5": "file:C:/Unity_Repos/Unity_3D/gaitkeeper/hdf5",
     "com.github.mj-unity-extensions": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#develop",
     "com.github.modular-agents.core": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/core#develop",
     "com.github.modular-agents.mujoco": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#develop",
@@ -15,7 +16,7 @@
     "com.unity.timeline": "1.7.4",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.8.0",
-    "org.mujoco": "https://github.com/deepmind/mujoco.git?path=unity#2.3.7",
+    "org.mujoco": "https://github.com/Balint-H/mujoco.git?path=unity#feature/unity-hmap-dyn",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

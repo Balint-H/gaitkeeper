@@ -6,28 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Prosthesis User/Passive Prosthesis/Soft/Soft-Foot User.unity
-    guid: b4d6f62be3d82bf45903c4183976fe41
+    path: Assets/Scenes/Prosthesis User/FSM Prosthesis/DReCon - FSM Prosthesis.unity
+    guid: 54929c60d612eef46ace5d2ae47213e1
   - enabled: 0
-    path: Assets/Scenes/Prosthesis User/Passive Prosthesis/Soft/Soft-Foot User Realigned.unity
-    guid: b5cf8d4ac252327459d163368625119f
-  - enabled: 0
-    path: Assets/Scenes/Prosthesis User/Passive Prosthesis/Rigid/Soft-Foot User Realigned
-      Rigid.unity
-    guid: d69d1442b69642b47b10bae36a8df9b2
-  - enabled: 0
-    path: Assets/Scenes/Prosthesis User/Passive Prosthesis/Soft/Soft-Foot User Realigned
-      Difficult.unity
-    guid: 3db5274f275f4ab4aac3fd6c96949f4f
-  - enabled: 0
-    path: Assets/Scenes/Prosthesis User/Non-intent Driven Prosthesis/DReCon - Artanim.unity
-    guid: bc31565799dc83e46b5766838b0b5f9b
-  - enabled: 0
-    path: Assets/Scenes/Prosthesis User/Passive Prosthesis/Unilateral/Soft-Foot User
-      Unilateral.unity
-    guid: 885e650ee15c3044ba414a1cdc86acd2
+    path: Assets/Scenes/Prosthesis User/Passive Prosthesis/Unilateral/Rough/Soft-Foot
+      User Unilateral Rough.unity
+    guid: 7ff98dc0ea3958640b68a79e3923f38d
   - enabled: 1
-    path: Assets/Scenes/Prosthesis User/Passive Prosthesis/Unilateral/Soft-Foot User
-      Unilateral Uneven.unity
-    guid: 6896c055f1635c9439dde42427cb3bfb
+    path: Assets/Scenes/Non-prosthesis User/Ground Reaction Force Observations/Rough/GRF
+      - HField.unity
+    guid: a3df6949218f6d84494802a54bf1c7f3
   m_configObjects: {}
