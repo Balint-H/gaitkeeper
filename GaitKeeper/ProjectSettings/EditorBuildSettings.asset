@@ -5,15 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Prosthesis User/FSM Prosthesis/DReCon - FSM Prosthesis.unity
-    guid: 54929c60d612eef46ace5d2ae47213e1
-  - enabled: 0
-    path: Assets/Scenes/Prosthesis User/Passive Prosthesis/Unilateral/Rough/Soft-Foot
-      User Unilateral Rough.unity
-    guid: 7ff98dc0ea3958640b68a79e3923f38d
   - enabled: 1
-    path: Assets/Scenes/Non-prosthesis User/Ground Reaction Force Observations/Rough/GRF
-      - HField.unity
-    guid: a3df6949218f6d84494802a54bf1c7f3
+    path: Assets/Scenes/Non-prosthesis User/Ground Reaction Force Observations/GRF
+      - Stand  - Finetune.unity
+    guid: 07d3c7e19ac041d44abf52b8d9469ab0
   m_configObjects: {}

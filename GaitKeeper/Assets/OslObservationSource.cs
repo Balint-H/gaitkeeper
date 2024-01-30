@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ModularAgents;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
@@ -11,17 +12,20 @@ public class OslObservationSource : ObservationSource {
   bool oneHotEncode;
 
   [SerializeField]
+  private ModularAgent agent;
+
+  [SerializeField]
   ActuatorOSL prosthesisFsm;
 
   [SerializeField]
   ActuatorOSL intactFsm;
 
-
+  [SerializeField]
   List<ActuatorOSL.FsmSwitchArgs> prosthesisTrajectoryParams;
 
   [SerializeField]
   public List<ActuatorOSL.FsmSwitchArgs> intactTrajectoryParams;
-
+  private List<ActuatorOSL.FsmSwitchArgs> defaultIntactTrajectoryParams;
 
   public override int Size => (oneHotEncode ? 4 : 1) + 4 * 8;
 
@@ -55,14 +59,21 @@ public class OslObservationSource : ObservationSource {
   }
 
   public override void OnAgentStart() {
-    if (prosthesisTrajectoryParams != null) return;
-    prosthesisTrajectoryParams = new List<ActuatorOSL.FsmSwitchArgs> { };
-    for (int i = 0; i < 4; i++) {
-      prosthesisTrajectoryParams.Add(intactTrajectoryParams[i]);
-    }
+    defaultIntactTrajectoryParams = intactTrajectoryParams;
+    ResetParams();
 
     prosthesisFsm.FsmSwitchEvent += UpdateParams;
     intactFsm.FsmSwitchEvent += (_, args) => intactTrajectoryParams[(int)args.NewPhase] = args;
+    agent.OnBegin += (_, _) =>ResetParams();
+  }
+
+  private void ResetParams() {
+    prosthesisTrajectoryParams = new List<ActuatorOSL.FsmSwitchArgs>();
+    intactTrajectoryParams = new List<ActuatorOSL.FsmSwitchArgs>();
+    for (int i = 0; i < 4; i++) {
+      prosthesisTrajectoryParams.Add(defaultIntactTrajectoryParams[i]);
+      intactTrajectoryParams.Add(defaultIntactTrajectoryParams[i]);
+    }
   }
 
   private void UpdateParams(object sender, ActuatorOSL.FsmSwitchArgs args) {
