@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.github.hdf5": {
-      "version": "file:C:/Unity_Repos/Unity_3D/gaitkeeper/hdf5",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.github.mj-unity-extensions": {
       "version": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#develop",
       "depth": 0,
@@ -13,7 +7,7 @@
       "dependencies": {
         "org.mujoco": "2.3.1"
       },
-      "hash": "da85ae90edd2e3b1dc7ac7f74074c3f1811145ec"
+      "hash": "fa0e5fcb7121e41d9142d669744f28961f1bb607"
     },
     "com.github.modular-agents.core": {
       "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/core#develop",
@@ -22,7 +16,7 @@
       "dependencies": {
         "com.unity.ml-agents": "2.2.1"
       },
-      "hash": "4608d9b3c45456cc3f6af27c285a0b6d25fc1cb5"
+      "hash": "8a5335848ed0c2333c4e85882cb0cc0a95c32092"
     },
     "com.github.modular-agents.mujoco": {
       "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#develop",
@@ -33,7 +27,7 @@
         "com.github.mj-unity-extensions": "0.1.0",
         "org.mujoco": "2.3.1"
       },
-      "hash": "15118cbc3a9953edf896b72c59bb189fb362b02f"
+      "hash": "fa0e5fcb7121e41d9142d669744f28961f1bb607"
     },
     "com.github.modular-agents.shared-assets": {
       "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/shared-assets#develop",

@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.github.hdf5": "file:C:/Unity_Repos/Unity_3D/gaitkeeper/hdf5",
     "com.github.mj-unity-extensions": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#develop",
     "com.github.modular-agents.core": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/core#develop",
     "com.github.modular-agents.mujoco": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#develop",
