@@ -1,49 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using HDF.PInvoke;
 using System.Runtime.InteropServices;
 using System;
-using UnityEditor;
-using System.Linq;
-using MathNet.Numerics.Interpolation;
-using MathNet.Numerics.LinearAlgebra;
-using MathNet.Numerics;
 
 
-public class Hdf5Reader : MonoBehaviour
+
+public static class Hdf5Reader
 {
-    [SerializeField]
-    string filePath;
 
-    [SerializeField]
-    string groupPath;
-
-    [SerializeField]
-    List<string> fields = new List<string> { "position", "quaternion", "joints", "velocity", "angular_velocity", "joints_velocity", "body_positions", "body_quaternions" };
-
-
-    private void Awake()
-    {
-        var fullPath = System.IO.Path.Combine(Application.dataPath, filePath);
-        long fileId = H5F.open(fullPath, H5F.ACC_RDONLY);
-        H5F.close(fileId);
-
-        PrintDatasets();
-        var arr = GetArray("d_h");
-        Debug.Log(arr);
-        var fr = GetField("Framerate");
-        Debug.Log(fr);
-    }
-
-    public float[][] GetArray(string fieldName, bool fromFullPath=false)
+    public static float[][] GetArray(string fullFilePath, string groupPath, string fieldName)
     {
         float[][] data;
-        var fullPath = System.IO.Path.Combine(Application.dataPath, filePath);
-        long fileId = H5F.open(fullPath, H5F.ACC_RDONLY);
+        long fileId = H5F.open(fullFilePath, H5F.ACC_RDONLY);
         try
         {
-            var hdf5view = new DataFrameFieldView(fileId, fromFullPath ? fieldName : @".\" + groupPath + '/' + fieldName);
+            var hdf5view = new DataFrameFieldView(fileId, @".\" + groupPath + '/' + fieldName);
             data = hdf5view.GetArray();
         }
         finally
@@ -54,19 +25,17 @@ public class Hdf5Reader : MonoBehaviour
     }
 
 
-    public float GetField(string fieldName, bool fromFullPath = false)
+    public static float GetField(string fullFilePath, string groupPath, string fieldName)
     {
-        return GetArray(fieldName, fromFullPath)[0][0];
+        return GetArray(fullFilePath, groupPath, fieldName)[0][0];
     }
 
 
-    public void PrintDatasets()
-    {
-        var fullPath = System.IO.Path.Combine(Application.dataPath, filePath);
-        
-        long fileId = H5F.open(fullPath, H5F.ACC_RDONLY);
+    public static void PrintDatasets(string fullFilePath)
+    { 
+        long fileId = H5F.open(fullFilePath, H5F.ACC_RDONLY);
 
-        Debug.Log($"Reading file {fullPath}, id: {fileId}");
+        Debug.Log($"Reading file {fullFilePath}, id: {fileId}");
 
         H5O.iterate_t iterateCallback = (long loc_id, IntPtr namePtr, ref H5O.info_t info, IntPtr op_data) =>
         {

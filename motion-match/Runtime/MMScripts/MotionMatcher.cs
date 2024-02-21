@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
+using JetBrains.Annotations;
+using UnityEditor;
 
 public class MotionMatcher 
 {
@@ -22,14 +24,14 @@ public class MotionMatcher
 
     public float MaxVelocity { get; set; }
 
-    public MotionMatcher(MMDataset datasetIn, MatchingWeights weights, float maxVelocity = 1.2f, int margin=5)
+    public MotionMatcher(JsonDataset datasetIn, MatchingWeights weights, float maxVelocity = 1.2f, int margin=5)
     {
         nDimensions = datasetIn.nDimensions;
         nTrajectoryPoints = datasetIn.nTrajectoryPoints;
 
         List<double> framerates = datasetIn.motionList.Select(x => x.markedUpMetada.freq).ToList();
-        List<List<MMDataset.MetacropRange>> cropRangesInClips = 
-            datasetIn.motionList.Select(x => x.markedUpMetada.ranges.Select(r => new MMDataset.MetacropRange(r.start, r.stop)).ToList()).ToList();
+        List<List<JsonDataset.MetacropRange>> cropRangesInClips = 
+            datasetIn.motionList.Select(x => x.markedUpMetada.ranges.Select(r => new JsonDataset.MetacropRange(r.start, r.stop)).ToList()).ToList();
         timeIndexConverter = new TimeIndexConverter(framerates, cropRangesInClips);
 
         MappedFeatures mappedFeatures = MocapLoader.GetMappedFeatures(datasetIn, margin: margin);
@@ -131,7 +133,7 @@ public class MotionMatcher
     {
         IReadOnlyList<TemporalClipInfo> TemporalClipInfos { get; }
 
-        public TimeIndexConverter(IEnumerable<double> framerates, IEnumerable<IEnumerable<MMDataset.MetacropRange>> allRanges)
+        public TimeIndexConverter(IEnumerable<double> framerates, IEnumerable<IEnumerable<JsonDataset.MetacropRange>> allRanges)
         {
             
             List<TemporalClipInfo> _TemporalClipInfos = new List<TemporalClipInfo> { };
@@ -140,7 +142,7 @@ public class MotionMatcher
             foreach (var tup in framerates.Zip(allRanges,Tuple.Create))
             {
                 double framerate = tup.Item1;
-                IEnumerable<MMDataset.MetacropRange> ranges = tup.Item2;
+                IEnumerable<JsonDataset.MetacropRange> ranges = tup.Item2;
                 _TemporalClipInfos.Add(new TemporalClipInfo(framerate, ranges.ToList().AsReadOnly(), totalFrames));
                 totalFrames = _TemporalClipInfos.Last().FrameCount;
             }
@@ -178,7 +180,7 @@ public class MotionMatcher
         class TemporalClipInfo
         {
             public double Framerate { get; }
-            public IReadOnlyList<MMDataset.MetacropRange> Ranges { get; }
+            public IReadOnlyList<JsonDataset.MetacropRange> Ranges { get; }
 
             public int FrameCount { get; }
 
@@ -222,7 +224,7 @@ public class MotionMatcher
                 return result*Framerate;
             }
 
-            public TemporalClipInfo(double framerate, IEnumerable<MMDataset.MetacropRange>ranges, int offset)
+            public TemporalClipInfo(double framerate, IEnumerable<JsonDataset.MetacropRange>ranges, int offset)
             {
                 Framerate = framerate;
                 Ranges = ranges.ToList();
@@ -257,20 +259,20 @@ public class MotionMatcher
 
 static class MocapLoader
 {
-     public static MappedFeatures GetMappedFeatures(MMDataset dataset, int margin=5)
+     public static MappedFeatures GetMappedFeatures(JsonDataset dataset, int margin=5)
     {
-        IEnumerable<MMDataset.CroppedMetafile> metaFiles = dataset.motionList.Select(x => x.markedUpMetada);
+        IEnumerable<JsonDataset.CroppedMetafile> metaFiles = dataset.motionList.Select(x => x.markedUpMetada);
         int nDims = dataset.nDimensions;
         int nTrajectoryPoints = dataset.nTrajectoryPoints;
 
         List<List<float>> list_data = Enumerable.Range(0, nDims).Select(x => new List<float> { }).ToList();
         var frameMap = new List<List<MotionMatcher.MMFrame>> { };
-        foreach ((MMDataset.CroppedMetafile metaFile, int fileIdx) in metaFiles.Select((value, i) => (value, i)))
+        foreach ((JsonDataset.CroppedMetafile metaFile, int fileIdx) in metaFiles.Select((value, i) => (value, i)))
         {
             string json_text = metaFile.file.text;
             ParsedMetadata json_data = JsonConvert.DeserializeObject<ParsedMetadata>(json_text);
             
-            List<MMDataset.MetacropRange> curCrops = metaFile.ranges;
+            List<JsonDataset.MetacropRange> curCrops = metaFile.ranges;
             int maxRange = json_data.Length;
             IEnumerable<int> croppedIndices = DistinctIndicesFromRanges(curCrops, maxRange);
 
@@ -297,10 +299,10 @@ static class MocapLoader
     }
 
 
-    static IEnumerable<int> DistinctIndicesFromRanges(IEnumerable<MMDataset.MetacropRange> curCrops, int maxRange)
+    static IEnumerable<int> DistinctIndicesFromRanges(IEnumerable<JsonDataset.MetacropRange> curCrops, int maxRange)
     {
         IEnumerable<int> idx = Enumerable.Empty<int>();
-        foreach (MMDataset.MetacropRange r in curCrops)
+        foreach (JsonDataset.MetacropRange r in curCrops)
         {
             int start = r.start == -1 ? 0 : Math.Max(0, r.start);
             int stop = r.stop == -1 ? maxRange : Math.Min(r.stop, maxRange);
@@ -310,10 +312,10 @@ static class MocapLoader
     }
    
     
-    static IEnumerable<int> MarginIndicesFromRanges(IEnumerable<MMDataset.MetacropRange> curCrops, int maxRange, int marginSize)
+    static IEnumerable<int> MarginIndicesFromRanges(IEnumerable<JsonDataset.MetacropRange> curCrops, int maxRange, int marginSize)
     {
-        IEnumerable<MMDataset.MetacropRange> marginRegions = 
-            curCrops.Select(cr => new MMDataset.MetacropRange(startIn: cr.stop - marginSize, stopIn: cr.stop));
+        IEnumerable<JsonDataset.MetacropRange> marginRegions = 
+            curCrops.Select(cr => new JsonDataset.MetacropRange(startIn: cr.stop - marginSize, stopIn: cr.stop));
 
         return DistinctIndicesFromRanges(marginRegions, maxRange);
     }
@@ -336,6 +338,39 @@ static class MocapLoader
         public List<List<float>> ToList()
         {
             return new List<List<float[]>> { t_h, d_h, v_g_l, p_l_lfoot, p_l_rfoot, v_g_lfoot, v_g_rfoot }.SelectMany(x => x).Select(x => x.ToList()).ToList();
+        }
+
+        public static ParsedMetadata FromMetafile(JsonDataset.CroppedMetafile metaFile)
+        {
+            string path = AssetDatabase.GetAssetPath(metaFile.file);
+            switch (System.IO.Path.GetExtension(path))
+            {
+                case ".json":
+                    return FromJson(path);
+                case ".binary":
+                    return FromH5(path);
+                default:
+                    throw new Exception($"File extension \"{System.IO.Path.GetExtension(path)}\" for metadata not supported");
+            }
+        }
+
+        public static ParsedMetadata FromJson(string path)
+        {
+            string jsonText = System.IO.File.ReadAllText(path);
+            return JsonConvert.DeserializeObject<ParsedMetadata>(jsonText);
+        }
+
+        public static ParsedMetadata FromH5(string path)
+        {
+            ParsedMetadata metadata = new ParsedMetadata();
+            metadata.t_h = Hdf5Reader.GetArray(path, "metadata", "t_h").ToList();
+            metadata.d_h = Hdf5Reader.GetArray(path, "metadata", "d_h").ToList();
+            metadata.v_g_l = Hdf5Reader.GetArray(path, "metadata", "v_g_l").ToList();
+            metadata.p_l_rfoot = Hdf5Reader.GetArray(path, "metadata", "p_l_rfoot").ToList();
+            metadata.p_l_lfoot = Hdf5Reader.GetArray(path, "metadata", "p_l_lfoot").ToList();
+            metadata.v_g_lfoot = Hdf5Reader.GetArray(path, "metadata", "v_g_lfoot").ToList();
+            metadata.v_g_rfoot = Hdf5Reader.GetArray(path, "metadata", "v_g_rfoot").ToList();
+            return metadata;
         }
     }
 }

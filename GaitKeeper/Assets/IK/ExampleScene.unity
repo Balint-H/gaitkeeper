@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234882050}
-  - component: {fileID: 234882049}
+  - component: {fileID: 234882051}
   m_Layer: 0
   m_Name: Loader
   m_TagString: Untagged
@@ -140,29 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &234882049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234882048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a9a2a07928be0747a036d724aeacc10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filePath: IK/artanim_1.h5
-  groupPath: artanim_1
-  fields:
-  - position
-  - quaternion
-  - joints
-  - velocity
-  - angular_velocity
-  - joints_velocity
-  - body_positions
-  - body_quaternions
 --- !u!4 &234882050
 Transform:
   m_ObjectHideFlags: 0
@@ -178,6 +155,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &234882051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234882048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b7abce2d1842245b06b7d67ac6f621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  binaryFile: {fileID: 4900000, guid: 01a7ed5e507591b44ac8dd8b0f3ec526, type: 3}
 --- !u!1 &1492515710
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ public class MMController: MonoBehaviour
     Avatar avatar;
     
     [SerializeField]
-    MMDataset matchingDataset;
+    JsonDataset matchingDataset;
     MotionMatcher motionMatcher;
     MotionMatcher.MMFrame foundFrame;
 
