@@ -1,10 +1,9 @@
 {
   "dependencies": {
-    "com.github.hdf5": "file:C:/Unity_Repos/Unity_3D/gaitkeeper/hdf5",
-    "com.github.mj-unity-extensions": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#develop",
-    "com.github.modular-agents.core": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/core#develop",
-    "com.github.modular-agents.mujoco": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#develop",
-    "com.github.modular-agents.shared-assets": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/shared-assets#develop",
+    "com.github.mj-unity-extensions": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#v1.2-beta",
+    "com.github.modular-agents.core": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/core#v1.2-beta",
+    "com.github.modular-agents.mujoco": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#v1.2-beta",
+    "com.github.modular-agents.shared-assets": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/shared-assets#v1.2-beta",
     "com.github.motion-match": "file:../../motion-match",
     "com.unity.animation.rigging": "1.2.1",
     "com.unity.collab-proxy": "2.0.4",

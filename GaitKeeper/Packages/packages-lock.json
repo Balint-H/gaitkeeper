@@ -1,31 +1,25 @@
 {
   "dependencies": {
-    "com.github.hdf5": {
-      "version": "file:C:/Unity_Repos/Unity_3D/gaitkeeper/hdf5",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.github.mj-unity-extensions": {
-      "version": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#develop",
+      "version": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#v1.2-beta",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "org.mujoco": "2.3.1"
       },
-      "hash": "da85ae90edd2e3b1dc7ac7f74074c3f1811145ec"
+      "hash": "8a5335848ed0c2333c4e85882cb0cc0a95c32092"
     },
     "com.github.modular-agents.core": {
-      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/core#develop",
+      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/core#v1.2-beta",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ml-agents": "2.2.1"
       },
-      "hash": "4608d9b3c45456cc3f6af27c285a0b6d25fc1cb5"
+      "hash": "8a5335848ed0c2333c4e85882cb0cc0a95c32092"
     },
     "com.github.modular-agents.mujoco": {
-      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#develop",
+      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#v1.2-beta",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -33,14 +27,14 @@
         "com.github.mj-unity-extensions": "0.1.0",
         "org.mujoco": "2.3.1"
       },
-      "hash": "15118cbc3a9953edf896b72c59bb189fb362b02f"
+      "hash": "8a5335848ed0c2333c4e85882cb0cc0a95c32092"
     },
     "com.github.modular-agents.shared-assets": {
-      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/shared-assets#develop",
+      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/shared-assets#v1.2-beta",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "da85ae90edd2e3b1dc7ac7f74074c3f1811145ec"
+      "hash": "8a5335848ed0c2333c4e85882cb0cc0a95c32092"
     },
     "com.github.motion-match": {
       "version": "file:../../motion-match",
