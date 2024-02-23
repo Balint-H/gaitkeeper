@@ -10,6 +10,7 @@ using Mujoco.Extensions;
 using Unity.MLAgents.Sensors;
 using System.Drawing;
 using Color = UnityEngine.Color;
+using MotionMatch;
 
 public class MjRayGridTextureWriter : MonoBehaviour {
 

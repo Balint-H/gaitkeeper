@@ -1,0 +1,17 @@
+{
+    "name": "MotionMatching.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d380ffa63f9d4f84e8f24a49f48c2a17",
+        "GUID:8c5a3ccb1363bce4f91f104f9c485b43"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

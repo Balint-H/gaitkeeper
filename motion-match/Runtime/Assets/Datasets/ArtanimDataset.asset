@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8328c955e7ff9ac4cbab4dfaeb68c23f, type: 3}
+  m_Name: ArtanimDataset
+  m_EditorClassIdentifier: 
+  motionList:
+  - Name: 
+    clip: {fileID: 0}
+    markedUpMetada:
+      metadata:
+        framerate: 30
+        TimeSamples:
+        - 20
+        - 40
+        - 60
+      Freq: 30
+      Framecount: 7045
+      ranges: []
+  - Name: 
+    clip: {fileID: 0}
+    markedUpMetada:
+      metadata:
+        framerate: 30
+        TimeSamples:
+        - 20
+        - 40
+        - 60
+      Freq: 0
+      Framecount: 0
+      ranges: []
+  nDimensions: 27
+  nTrajectoryPoints: 3

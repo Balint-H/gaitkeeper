@@ -6,7 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Non-prosthesis User/Ground Reaction Force Observations/GRF
-      - Stand  - Finetune.unity
-    guid: 07d3c7e19ac041d44abf52b8d9469ab0
+    path: Assets/Scenes/Non-prosthesis User/DReCon - Artanim.unity
+    guid: d1fd60f3e258a90478c075fc7e4f10c6
   m_configObjects: {}

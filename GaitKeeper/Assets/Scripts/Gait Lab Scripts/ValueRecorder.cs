@@ -5,6 +5,7 @@ using System.Linq;
 using System;
 using System.IO;
 using ModularAgents;
+using MotionMatch;
 
 namespace GaitLab
 {

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static MMUtility;
+using static MotionMatch.MMUtility;
 
 
 public class MMIntent : MonoBehaviour, IAnimationController

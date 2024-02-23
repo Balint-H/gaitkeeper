@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
+using MotionMatch;
 
 public class DReConDirectionGoal : SensorComponent
 {

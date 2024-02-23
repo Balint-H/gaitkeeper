@@ -8,6 +8,7 @@ using Mujoco;
 using Mujoco.Extensions;
 using System.Linq;
 using System;
+using MotionMatch;
 
 namespace ModularAgents
 {

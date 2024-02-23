@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using ModularAgents.Kinematic;
+using MotionMatch;
 
 public class MMKinematicRigSubscriber : MonoBehaviour
 {

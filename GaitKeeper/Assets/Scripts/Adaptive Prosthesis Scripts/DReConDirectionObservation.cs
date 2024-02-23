@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 using System.Linq;
+using MotionMatch;
 
 public class DReConDirectionObservation : ObservationSource
 {

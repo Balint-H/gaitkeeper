@@ -108,6 +108,7 @@ public static class Hdf5Reader
             finally
             {
                 gch.Free();
+                H5D.close(fieldId);
             }
 
 
@@ -120,7 +121,7 @@ public static class Hdf5Reader
                     arrOut[i][j] = arr[i, j];
                 }
             }
-            H5D.close(fieldId);
+            
             return arrOut;
         }
 
@@ -151,6 +152,7 @@ public static class Hdf5Reader
                 finally
                 {
                     gch.Free();
+                    H5D.close(fieldId);
                 }
                 return arr;
             }

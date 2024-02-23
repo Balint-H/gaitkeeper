@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using MotionMatch;
 
 
 public class MouseInputScript:MonoBehaviour, IMMInput
