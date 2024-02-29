@@ -25,14 +25,14 @@ namespace MotionMatch
         {
             public string Name;
             public AnimationClip clip;
-            public CroppedMetafile markedUpMetada;
+            public CroppedMetafile markedUpMetadata;
 
         }
 
         [Serializable]
         public class CroppedMetafile
         {
-            public ParsedMetadata metadata;
+            public SerializedMetadata metadata;
 
             public double Freq = 0;
 
@@ -61,15 +61,15 @@ namespace MotionMatch
         }
 
         [Serializable]
-        public class ParsedMetadata
+        public class SerializedMetadata
         {
-            public List<float[]> t_h;
-            public List<float[]> d_h;
-            public List<float[]> v_g_l;
-            public List<float[]> p_l_lfoot;
-            public List<float[]> p_l_rfoot;
-            public List<float[]> v_g_lfoot;
-            public List<float[]> v_g_rfoot;
+            public List<ArrayWrapper> t_h;
+            public List<ArrayWrapper> d_h;
+            public List<ArrayWrapper> v_g_l;
+            public List<ArrayWrapper> p_l_lfoot;
+            public List<ArrayWrapper> p_l_rfoot;
+            public List<ArrayWrapper> v_g_lfoot;
+            public List<ArrayWrapper> v_g_rfoot;
 
             [JsonProperty(PropertyName = "Framerate")]
             public float framerate;
@@ -84,10 +84,67 @@ namespace MotionMatch
 
             public List<List<float>> ToList()
             {
-                return new List<List<float[]>> { t_h, d_h, v_g_l, p_l_lfoot, p_l_rfoot, v_g_lfoot, v_g_rfoot }.SelectMany(x => x).Select(x => x.ToList()).ToList();
+                return new List<List<ArrayWrapper>> { t_h, d_h, v_g_l, p_l_lfoot, p_l_rfoot, v_g_lfoot, v_g_rfoot }
+                    .SelectMany(x => x.Select(aw => aw.arr))
+                    .Select(x => x.ToList()).ToList();
             }
 
-            
+            [Serializable]
+            public class ArrayWrapper
+            {
+                public float[] arr;
+                public float this[int key]
+                {
+                    get
+                    {
+                        return arr[key];
+                    }
+                    set
+                    {
+                        arr[key] = value;
+                    }
+                }
+
+                public static ArrayWrapper Wrap(float[] arr)
+                {
+                    return new ArrayWrapper { arr = arr };
+                }
+
+                public int Length => arr.Length;
+            }
+
+            public class JsonParsedMetadata
+            {
+                public List<float[]> t_h;
+                public List<float[]> d_h;
+                public List<float[]> v_g_l;
+                public List<float[]> p_l_lfoot;
+                public List<float[]> p_l_rfoot;
+                public List<float[]> v_g_lfoot;
+                public List<float[]> v_g_rfoot;
+
+                [JsonProperty(PropertyName = "Framerate")]
+                public float framerate;
+
+                [JsonProperty(PropertyName = "Time Samples")]
+                public List<float> TimeSamples;
+
+                public SerializedMetadata ToSerializedMetadata()
+                {
+                    SerializedMetadata metadata = new SerializedMetadata();
+                    metadata.t_h = t_h.Select(arr => ArrayWrapper.Wrap(arr)).ToList();
+                    metadata.d_h = d_h.Select(arr => ArrayWrapper.Wrap(arr)).ToList();
+                    metadata.v_g_l = v_g_l.Select(arr => ArrayWrapper.Wrap(arr)).ToList();
+                    metadata.p_l_lfoot = p_l_lfoot.Select(arr => ArrayWrapper.Wrap(arr)).ToList();
+                    metadata.p_l_rfoot = p_l_rfoot.Select(arr => ArrayWrapper.Wrap(arr)).ToList();
+                    metadata.v_g_lfoot = v_g_lfoot.Select(arr => ArrayWrapper.Wrap(arr)).ToList();
+                    metadata.v_g_rfoot = v_g_rfoot.Select(arr => ArrayWrapper.Wrap(arr)).ToList();
+                    metadata.framerate = framerate;
+                    metadata.TimeSamples = TimeSamples;
+                    return metadata;
+                }
+
+            }
         }
 
     }

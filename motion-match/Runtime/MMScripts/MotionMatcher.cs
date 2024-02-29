@@ -32,9 +32,9 @@ namespace MotionMatch
             nDimensions = datasetIn.nDimensions;
             nTrajectoryPoints = datasetIn.nTrajectoryPoints;
 
-            List<double> framerates = datasetIn.motionList.Select(x => x.markedUpMetada.Freq).ToList();
+            List<double> framerates = datasetIn.motionList.Select(x => x.markedUpMetadata.Freq).ToList();
             List<List<MMDataset.MetacropRange>> cropRangesInClips =
-                datasetIn.motionList.Select(x => x.markedUpMetada.ranges.Select(r => new MMDataset.MetacropRange(r.start, r.stop)).ToList()).ToList();
+                datasetIn.motionList.Select(x => x.markedUpMetadata.ranges.Select(r => new MMDataset.MetacropRange(r.start, r.stop)).ToList()).ToList();
             timeIndexConverter = new TimeIndexConverter(framerates, cropRangesInClips);
 
             MappedFeatures mappedFeatures = MocapLoader.GetMappedFeatures(datasetIn, margin: margin);
@@ -264,7 +264,7 @@ namespace MotionMatch
     {
         public static MappedFeatures GetMappedFeatures(MMDataset dataset, int margin = 5)
         {
-            IEnumerable<MMDataset.CroppedMetafile> metaFiles = dataset.motionList.Select(x => x.markedUpMetada);
+            IEnumerable<MMDataset.CroppedMetafile> metaFiles = dataset.motionList.Select(x => x.markedUpMetadata);
             int nDims = dataset.nDimensions;
             int nTrajectoryPoints = dataset.nTrajectoryPoints;
 
@@ -272,7 +272,7 @@ namespace MotionMatch
             var frameMap = new List<List<MotionMatcher.MMFrame>> { };
             foreach ((MMDataset.CroppedMetafile metaFile, int fileIdx) in metaFiles.Select((value, i) => (value, i)))
             {
-                MMDataset.ParsedMetadata metadata = metaFile.metadata;
+                MMDataset.SerializedMetadata metadata = metaFile.metadata;
 
                 List<MMDataset.MetacropRange> curCrops = metaFile.ranges;
                 int maxRange = metadata.Length;
