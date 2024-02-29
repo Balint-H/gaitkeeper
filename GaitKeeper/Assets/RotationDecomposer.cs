@@ -46,7 +46,6 @@ public class RotationDecomposer : MonoBehaviour
         Matrix<float> bodyRotation = Matrix<float>.Build.DenseOfColumns(columns.Select(c => c.GetComponents()));
         var changedBasisRotation = basis.Transpose() * bodyRotation * basis;
 
-        Quaternion.Inverse(initRotation)
 
         var decomposed = EulerDecompose(changedBasisRotation);
         Debug.Log(string.Join(", ", decomposed)+'\n'+ string.Join(", ", hinges.Select(h => MjScene.Instance.Data->qpos[h.QposAddress])));
