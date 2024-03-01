@@ -318,7 +318,7 @@ static class MocapLoader
         return DistinctIndicesFromRanges(marginRegions, maxRange);
     }
 
-    class ParsedMetadata
+    public class ParsedMetadata
     {
         public List<float[]> t_h;
         public List<float[]> d_h;
@@ -327,6 +327,8 @@ static class MocapLoader
         public List<float[]> p_l_rfoot;
         public List<float[]> v_g_lfoot;
         public List<float[]> v_g_rfoot;
+        public List<float[]> l_stances;
+        public List<float[]> r_stances;
 
         public int Length
         {

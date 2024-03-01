@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Non-prosthesis User/Ground Reaction Force Observations/GRF
-      - Stand  - Finetune.unity
-    guid: 07d3c7e19ac041d44abf52b8d9469ab0
+    path: Assets/Scenes/Prosthesis User/FSM Prosthesis/DReCon - FSM Prosthesis -
+      Adapt.unity
+    guid: 6e97bec4d02988a49ac2659d99f587c6
   m_configObjects: {}
