@@ -72,6 +72,24 @@ public class MotionMatcher
         return frameMap[minIdx];
     }
 
+    public MMFrame Match(float[] query)
+    {
+        int minIdx = -1;
+        float cost = float.MaxValue;
+        for (int i = 0; i < normalizedTemporalMetadata.Length; i++)
+        {
+
+            float cur_cost = L2Norm(query, normalizedTemporalMetadata[i]);
+            if (cur_cost < cost)
+            {
+                minIdx = i;
+                cost = cur_cost;
+            }
+        }
+
+        return frameMap[minIdx];
+    }
+
     public float[] BuildQuery(IEnumerable<Vector2> trajInput, MMFrame sourceFrame)
     {
         float [] inputDrivenNormalizedQuerySegment = trajInput.SelectMany(v => new[] { v.x, v.y }).Zip(trajectoryStatistics, (feature, stat) => stat.Normalize(feature)).ToArray();
@@ -255,7 +273,7 @@ public class MotionMatcher
     }
 }
 
-static class MocapLoader
+public static class MocapLoader
 {
      public static MappedFeatures GetMappedFeatures(MMDataset dataset, int margin=5)
     {
@@ -342,7 +360,7 @@ static class MocapLoader
     }
 }
 
-class MappedFeatures
+public class MappedFeatures
 {
     public List<List<float>> features;
     public List<List<MotionMatcher.MMFrame>> frameMap;

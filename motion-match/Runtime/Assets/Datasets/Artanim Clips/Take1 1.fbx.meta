@@ -1,0 +1,946 @@
+fileFormatVersion: 2
+guid: ed524dabc24479c438b471fcf91929ff
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take1_x2d' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Balint:Solving:Spine3' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Balint:Solving:Neck1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Balint:Solving:RightHandRing'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Balint:Solving:RightHandPinky'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Balint:Solving:RightHandIndex'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Balint:Solving:RightHandThumb1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Balint:Solving:LeftHandRing'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Balint:Solving:LeftHandPinky'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Balint:Solving:LeftHandIndex'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Balint:Solving:LeftHandThumb1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take1_x2d
+      takeName: Take1_x2d
+      internalID: 5358013094565394644
+      firstFrame: 1
+      lastFrame: 28301
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Balint:Solving:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandIndex1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandIndex2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandIndex3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandThumb2
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandThumb3
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandThumb4
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandPinky1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandPinky2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandPinky3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandRing1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandRing2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:LeftHandRing3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandIndex1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandIndex2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandIndex3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandThumb2
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandThumb3
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandThumb4
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandPinky1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandPinky2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandPinky3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandRing1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandRing2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:RightHandRing3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Balint:Solving:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Take1(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving
+      parentName: Take1(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:Position
+      parentName: Balint:Solving
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:Hips
+      parentName: Take1(Clone)
+      position: {x: 0, y: 0.9388719, z: 0}
+      rotation: {x: -0.00032043282, y: -0.69570386, z: -0.71822155, w: 0.012406737}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:Spine
+      parentName: Balint:Solving:Hips
+      position: {x: -0, y: 0, z: 0.11302523}
+      rotation: {x: 0.07342649, y: -0.008729569, z: -0.011127719, w: 0.99720037}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:Spine1
+      parentName: Balint:Solving:Spine
+      position: {x: -0, y: 0, z: 0.11302523}
+      rotation: {x: -0.0573625, y: -0.010107346, z: -0.009893081, w: 0.9982532}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:Spine2
+      parentName: Balint:Solving:Spine1
+      position: {x: -0, y: 0, z: 0.11302523}
+      rotation: {x: -0.053099893, y: 0.01195191, z: -0.010856276, w: 0.9984587}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:Spine3
+      parentName: Balint:Solving:Spine2
+      position: {x: -0, y: 0, z: 0.11302523}
+      rotation: {x: -0.009497179, y: 0.012414079, z: -0.0103246095, w: 0.9998245}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:Neck
+      parentName: Balint:Solving:Spine3
+      position: {x: -0, y: 0.0145318145, z: 0.14531815}
+      rotation: {x: -0.06367249, y: 0.046971124, z: 0.024784803, w: 0.9965567}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:Neck1
+      parentName: Balint:Solving:Neck
+      position: {x: -0, y: 0, z: 0.057098664}
+      rotation: {x: -0.058583334, y: -0.023555335, z: 0.027871538, w: 0.99761534}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:Head
+      parentName: Balint:Solving:Neck1
+      position: {x: -0, y: 0, z: 0.057098664}
+      rotation: {x: 0.07857414, y: -0.12341659, z: 0.016059306, w: 0.989109}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:HeadEnd
+      parentName: Balint:Solving:Head
+      position: {x: -0, y: 0, z: 0.097703315}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightShoulder
+      parentName: Balint:Solving:Spine3
+      position: {x: -0, y: 0, z: 0.1017227}
+      rotation: {x: 0.05176464, y: -0.63630825, z: 0.062409773, w: 0.7671618}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightArm
+      parentName: Balint:Solving:RightShoulder
+      position: {x: -0, y: 0, z: 0.18423112}
+      rotation: {x: 0.0076762564, y: -0.15239066, z: -0.30877143, w: 0.93881756}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightForeArm
+      parentName: Balint:Solving:RightArm
+      position: {x: -0, y: 0, z: 0.32521725}
+      rotation: {x: -0.056251895, y: 0.035734396, z: 0.3143199, w: 0.94697505}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHand
+      parentName: Balint:Solving:RightForeArm
+      position: {x: -0, y: 0, z: 0.26273105}
+      rotation: {x: 0.033648342, y: 0.07895429, z: -0.0028551116, w: 0.9963061}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandMiddle1
+      parentName: Balint:Solving:RightHand
+      position: {x: -0, y: 0, z: 0.08579704}
+      rotation: {x: 0.014511518, y: -0.07397854, z: 0.010598839, w: 0.99709797}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandMiddle2
+      parentName: Balint:Solving:RightHandMiddle1
+      position: {x: -0, y: 0, z: 0.0457384}
+      rotation: {x: -0.0000016046685, y: -0.028972775, z: -0.00000023550814, w: 0.9995802}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandMiddle3
+      parentName: Balint:Solving:RightHandMiddle2
+      position: {x: -0, y: 0, z: 0.030409211}
+      rotation: {x: 0.00000222435, y: -0.03425223, z: 0.00000021616881, w: 0.99941325}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandMiddle4
+      parentName: Balint:Solving:RightHandMiddle3
+      position: {x: -0, y: 0, z: 0.017248347}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandRing
+      parentName: Balint:Solving:RightHand
+      position: {x: -0.0026901017, y: -0.01099584, z: 0.0026901017}
+      rotation: {x: 0.074605584, y: 0.0012128904, z: -0.0911495, w: 0.99303794}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandRing1
+      parentName: Balint:Solving:RightHandRing
+      position: {x: -0, y: 0, z: 0.07566334}
+      rotation: {x: -0.04161183, y: -0.07386502, z: -0.0014812478, w: 0.9963986}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandRing2
+      parentName: Balint:Solving:RightHandRing1
+      position: {x: -0, y: 0, z: 0.042258065}
+      rotation: {x: -0.0000009648502, y: -0.025725119, z: 0.00000025331974, w: 0.99966913}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandRing3
+      parentName: Balint:Solving:RightHandRing2
+      position: {x: -0, y: 0, z: 0.029750684}
+      rotation: {x: 0.0000006057614, y: -0.036635935, z: 0.00000017653957, w: 0.99932873}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandRing4
+      parentName: Balint:Solving:RightHandRing3
+      position: {x: -0, y: 0, z: 0.01714922}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandPinky
+      parentName: Balint:Solving:RightHandRing
+      position: {x: -0.0026901017, y: -0.01099584, z: 0.0026901017}
+      rotation: {x: 0.09463238, y: 0.0057518706, z: -0.038566332, w: 0.99474835}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandPinky1
+      parentName: Balint:Solving:RightHandPinky
+      position: {x: -0, y: 0, z: 0.06275724}
+      rotation: {x: -0.11127263, y: -0.07122572, z: -0.013619315, w: 0.99114066}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandPinky2
+      parentName: Balint:Solving:RightHandPinky1
+      position: {x: -0, y: 0, z: 0.035331976}
+      rotation: {x: -0.0000024214387, y: -0.028689094, z: -0.00000023189932, w: 0.99958843}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandPinky3
+      parentName: Balint:Solving:RightHandPinky2
+      position: {x: -0, y: 0, z: 0.022623757}
+      rotation: {x: 0.0000012014086, y: -0.034577586, z: 0.0000003381537, w: 0.99940205}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandPinky4
+      parentName: Balint:Solving:RightHandPinky3
+      position: {x: -0, y: 0, z: 0.015820898}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandIndex
+      parentName: Balint:Solving:RightHand
+      position: {x: -0.0026901017, y: 0.01099584, z: 0.0026901017}
+      rotation: {x: -0.116079144, y: -0.010885662, z: -0.050056715, w: 0.9919181}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandIndex1
+      parentName: Balint:Solving:RightHandIndex
+      position: {x: -0, y: 0, z: 0.08266051}
+      rotation: {x: -0.21901844, y: -0.014137167, z: -0.014405158, w: 0.9755119}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandIndex2
+      parentName: Balint:Solving:RightHandIndex1
+      position: {x: -0, y: 0, z: 0.044985473}
+      rotation: {x: 0.00000007450577, y: -0.02569116, z: -0.00000073015656, w: 0.99966997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandIndex3
+      parentName: Balint:Solving:RightHandIndex2
+      position: {x: -0, y: 0, z: 0.026740817}
+      rotation: {x: -0.0000033440576, y: -0.03671741, z: 0.0000004962389, w: 0.99932575}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandIndex4
+      parentName: Balint:Solving:RightHandIndex3
+      position: {x: -0, y: 0, z: 0.015682118}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandThumb1
+      parentName: Balint:Solving:RightHandIndex
+      position: {x: -0.008070305, y: 0.01099584, z: 0.0026901017}
+      rotation: {x: -0.24562137, y: -0.106544174, z: 0.5831219, w: 0.76699895}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandThumb2
+      parentName: Balint:Solving:RightHandThumb1
+      position: {x: -0, y: 0, z: 0.05348511}
+      rotation: {x: 0.2483427, y: -0.13056394, z: -0.011720893, w: 0.95976126}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandThumb3
+      parentName: Balint:Solving:RightHandThumb2
+      position: {x: -0, y: 0, z: 0.037160605}
+      rotation: {x: 0, y: -0.042466704, z: -0, w: 0.9990979}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightHandThumb4
+      parentName: Balint:Solving:RightHandThumb3
+      position: {x: -0, y: 0, z: 0.021481132}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftShoulder
+      parentName: Balint:Solving:Spine3
+      position: {x: -0, y: 0, z: 0.1017227}
+      rotation: {x: 0.013725113, y: 0.5768566, z: -0.028236026, w: 0.8162419}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftArm
+      parentName: Balint:Solving:LeftShoulder
+      position: {x: -0, y: 0, z: 0.18423112}
+      rotation: {x: -0.022687327, y: 0.19962941, z: 0.30941427, w: 0.92946017}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftForeArm
+      parentName: Balint:Solving:LeftArm
+      position: {x: -0, y: 0, z: 0.32521725}
+      rotation: {x: -0.02708146, y: -0.040339563, z: -0.35150602, w: 0.93492395}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHand
+      parentName: Balint:Solving:LeftForeArm
+      position: {x: -0, y: 0, z: 0.26273105}
+      rotation: {x: 0.058817357, y: -0.063843444, z: 0.014086521, w: 0.9961256}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandMiddle1
+      parentName: Balint:Solving:LeftHand
+      position: {x: -0, y: 0, z: 0.0842851}
+      rotation: {x: 0.004461399, y: 0.07023565, z: -0.007726449, w: 0.9974905}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandMiddle2
+      parentName: Balint:Solving:LeftHandMiddle1
+      position: {x: -0, y: 0, z: 0.045033455}
+      rotation: {x: -0.000001234468, y: 0.0259361, z: 0.00000019057185, w: 0.99966365}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandMiddle3
+      parentName: Balint:Solving:LeftHandMiddle2
+      position: {x: -0, y: 0, z: 0.030063294}
+      rotation: {x: 0.00000019193135, y: 0.03169908, z: 0.00000017255283, w: 0.9994975}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandMiddle4
+      parentName: Balint:Solving:LeftHandMiddle3
+      position: {x: -0, y: 0, z: 0.016873114}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandRing
+      parentName: Balint:Solving:LeftHand
+      position: {x: 0.0026901017, y: -0.011288226, z: 0.0026901017}
+      rotation: {x: 0.07566615, y: -0.00032955306, z: 0.09825158, w: 0.9922808}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandRing1
+      parentName: Balint:Solving:LeftHandRing
+      position: {x: -0, y: 0, z: 0.074314095}
+      rotation: {x: -0.053435594, y: 0.07386836, z: 0.006594527, w: 0.9958136}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandRing2
+      parentName: Balint:Solving:LeftHandRing1
+      position: {x: -0, y: 0, z: 0.04154168}
+      rotation: {x: -0.0000017732374, y: 0.021167366, z: -0.00000019697463, w: 0.99977595}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandRing3
+      parentName: Balint:Solving:LeftHandRing2
+      position: {x: -0, y: 0, z: 0.029419703}
+      rotation: {x: 0.0000011090779, y: 0.034982637, z: -0.00000013909167, w: 0.999388}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandRing4
+      parentName: Balint:Solving:LeftHandRing3
+      position: {x: -0, y: 0, z: 0.016776143}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandPinky
+      parentName: Balint:Solving:LeftHandRing
+      position: {x: 0.0026901017, y: -0.011288226, z: 0.0026901017}
+      rotation: {x: 0.09585181, y: -0.010096103, z: 0.031690642, w: 0.9948398}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandPinky1
+      parentName: Balint:Solving:LeftHandPinky
+      position: {x: -0, y: 0, z: 0.061544694}
+      rotation: {x: -0.12532778, y: 0.08475295, z: 0.025154505, w: 0.98816866}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandPinky2
+      parentName: Balint:Solving:LeftHandPinky1
+      position: {x: -0, y: 0, z: 0.03489373}
+      rotation: {x: 0.000002309679, y: 0.024681909, z: 0.00000030919898, w: 0.9996954}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandPinky3
+      parentName: Balint:Solving:LeftHandPinky2
+      position: {x: -0, y: 0, z: 0.022356467}
+      rotation: {x: -0.0000020702894, y: 0.03251649, z: 0.000000090056275, w: 0.99947125}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandPinky4
+      parentName: Balint:Solving:LeftHandPinky3
+      position: {x: -0, y: 0, z: 0.015476718}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandIndex
+      parentName: Balint:Solving:LeftHand
+      position: {x: 0.0026901017, y: 0.011288226, z: 0.0026901017}
+      rotation: {x: -0.11911479, y: 0.008796511, z: 0.055597756, w: 0.9912836}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandIndex1
+      parentName: Balint:Solving:LeftHandIndex
+      position: {x: -0, y: 0, z: 0.08102926}
+      rotation: {x: -0.22623064, y: 0.0037249979, z: 0.026843814, w: 0.97369677}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandIndex2
+      parentName: Balint:Solving:LeftHandIndex1
+      position: {x: -0, y: 0, z: 0.044375032}
+      rotation: {x: -0.0000065267072, y: 0.021525478, z: -0.0000006700864, w: 0.9997683}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandIndex3
+      parentName: Balint:Solving:LeftHandIndex2
+      position: {x: -0, y: 0, z: 0.026354913}
+      rotation: {x: -0.0000024412536, y: 0.035165723, z: -0.00000073398456, w: 0.99938154}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandIndex4
+      parentName: Balint:Solving:LeftHandIndex3
+      position: {x: -0, y: 0, z: 0.015340957}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandThumb1
+      parentName: Balint:Solving:LeftHandIndex
+      position: {x: 0.008070305, y: 0.011288226, z: 0.0026901017}
+      rotation: {x: -0.24161243, y: 0.11311337, z: -0.57772803, w: 0.77140075}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandThumb2
+      parentName: Balint:Solving:LeftHandThumb1
+      position: {x: -0, y: 0, z: 0.05198428}
+      rotation: {x: 0.25306895, y: 0.11784768, z: 0.018727362, w: 0.96006113}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandThumb3
+      parentName: Balint:Solving:LeftHandThumb2
+      position: {x: -0, y: 0, z: 0.03671595}
+      rotation: {x: 0, y: 0.0426348, z: -0, w: 0.99909073}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftHandThumb4
+      parentName: Balint:Solving:LeftHandThumb3
+      position: {x: -0, y: 0, z: 0.021013815}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightUpLeg
+      parentName: Balint:Solving:Hips
+      position: {x: -0.12078, y: 0, z: 0}
+      rotation: {x: -0.05420222, y: -0.029362911, z: 0.10070256, w: 0.99300504}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightLeg
+      parentName: Balint:Solving:RightUpLeg
+      position: {x: -0, y: 0, z: -0.46234724}
+      rotation: {x: 0.007710224, y: -0, z: -0, w: 0.9999703}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightFoot
+      parentName: Balint:Solving:RightLeg
+      position: {x: -0, y: 0, z: -0.4224304}
+      rotation: {x: -0.103554286, y: 0.061443184, z: 0.070663944, w: 0.99020606}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightToeBase
+      parentName: Balint:Solving:RightFoot
+      position: {x: -0, y: 0.15694198, z: 0}
+      rotation: {x: 0.0561266, y: -0, z: -0, w: 0.99842364}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:RightToeBaseEnd
+      parentName: Balint:Solving:RightToeBase
+      position: {x: -0, y: 0.06397314, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftUpLeg
+      parentName: Balint:Solving:Hips
+      position: {x: 0.12078, y: 0, z: 0}
+      rotation: {x: -0.06839324, y: 0.01545275, z: -0.07415543, w: 0.9947787}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftLeg
+      parentName: Balint:Solving:LeftUpLeg
+      position: {x: -0, y: 0, z: -0.46234724}
+      rotation: {x: 0.03548776, y: -0, z: -0, w: 0.9993701}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftFoot
+      parentName: Balint:Solving:LeftLeg
+      position: {x: -0, y: 0, z: -0.4224304}
+      rotation: {x: -0.076848716, y: 0.018086689, z: -0.034298074, w: 0.99628854}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftToeBase
+      parentName: Balint:Solving:LeftFoot
+      position: {x: -0, y: 0.15694198, z: 0}
+      rotation: {x: -0.05160131, y: 0, z: -0, w: 0.9986678}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Balint:Solving:LeftToeBaseEnd
+      parentName: Balint:Solving:LeftToeBase
+      position: {x: -0, y: 0.052137256, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

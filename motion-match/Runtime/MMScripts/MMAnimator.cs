@@ -43,7 +43,7 @@ public struct MMAnimator
 			Mixer.ConnectInput(idx, clipPlayable, 0);
 		}
 		 
-		AnimationPlayableOutput output = AnimationPlayableOutput.Create(Graph, "AnimatedHumanoid", animator);
+		AnimationPlayableOutput output = AnimationPlayableOutput.Create(Graph, "MotionMatchedHumanoid", animator);
 		output.SetSourcePlayable(Mixer);
 	}
 
@@ -124,6 +124,22 @@ public struct MMAnimator
 		Graph.Evaluate(dT);
     }
 
+    public void Evaluate()
+    {
+        Graph.Evaluate();
+    }
+
+    public void PauseAll()
+    {
+        for (int i = 0; i < Mixer.GetInputCount(); i++)
+        {
+			GetPlayable(i).Pause();
+        }
+    }
+
+    public PlayableGraph GetGraph() => Graph;
+
+    public double Duration => GetPlayable(CurrentClip).GetDuration();
 
 	public double Speed
     {

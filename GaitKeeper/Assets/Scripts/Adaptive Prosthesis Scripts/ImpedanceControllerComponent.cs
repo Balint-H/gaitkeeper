@@ -55,6 +55,8 @@ namespace ModularAgents.MotorControl
         Vector<double> angleOffsets;
         public Vector<double> GetAngleOffsetVector() => angleOffsets;
 
+        public float[] QfrcErrors { get; private set; }
+
 
         Vector<double> angleOffsetDefaults;
 
@@ -126,6 +128,12 @@ namespace ModularAgents.MotorControl
             Matrix<double> inertiaMatrix = MjState.GetSubInertiaArray(inertiaSubMatrixMap, dofAddresses.Length, e).ToSquareMatrix(dofAddresses.Length);
 
             var generalizedForces = ComputeSPD(posError, velError, posGainMatrix, velGainMatrix, biasVector, inertiaMatrix, dt);
+
+            for (int i = 0; i < dofAddresses.Length; i++)
+            {
+                var qfrc = Math.Clamp(generalizedForces[i], -maxForce, maxForce);
+                QfrcErrors[i] = (float)(e.data->qfrc_applied[dofAddresses[i]] - qfrc);
+            }
 
             foreach ((var dofIdx, var force) in dofAddresses.Zip(generalizedForces, Tuple.Create))
             {
@@ -241,6 +249,7 @@ namespace ModularAgents.MotorControl
             posGainDefaults = Vector<double>.Build.SparseOfVector(posGains);
             velGainDefaults = Vector<double>.Build.SparseOfVector(velGains);
             angleOffsetDefaults = Vector<double>.Build.SparseOfVector(angleOffsets);
+            QfrcErrors = new float[dofAddresses.Length];
         }
 
         private void OnDisable()

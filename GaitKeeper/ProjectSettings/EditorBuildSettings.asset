@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Prosthesis User/FSM Prosthesis/DReCon - FSM Prosthesis -
-      Adapt.unity
-    guid: 6e97bec4d02988a49ac2659d99f587c6
+    path: Assets/Scenes/Prosthesis User/MM Prosthesis/GRF - Stand - MM Prosthesis
+      - Hip - No Intent.unity
+    guid: e415596438dfa8c4f862949a58f592b6
   m_configObjects: {}

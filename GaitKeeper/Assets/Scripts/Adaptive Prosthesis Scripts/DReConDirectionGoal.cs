@@ -83,7 +83,7 @@ public class DReConDirectionGoal : SensorComponent
 
         public int Write(ObservationWriter writer)
         {
-            var observationVector = motionMatchingController.CurrentReferenceFrame.InverseTransform(inputComponent.AnalogueDirection);
+            var observationVector = motionMatchingController.CurrentReferenceFrame.InverseTransformDirection(inputComponent.AnalogueDirection);
             writer[0] = observationVector.x;
             writer[1] = observationVector.y;
             return 2;

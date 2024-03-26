@@ -18,7 +18,7 @@ public class DReConIntentObservation : ObservationSource
     public override void FeedObservationsToSensor(VectorSensor sensor)
     {
         RootProjection curRefFrame = motionSynthesizer.CurrentReferenceFrame;
-        var inputFeatures = inputTrajectorySource.CurrentTrajectoryAndDirection.Select(v => curRefFrame.InverseTransform(v));
+        var inputFeatures = inputTrajectorySource.CurrentTrajectoryAndDirection.Select(v => curRefFrame.InverseTransformDirection(v));
         foreach (var vec in inputFeatures)
         {
             sensor.AddObservation(vec);

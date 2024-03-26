@@ -10,7 +10,6 @@ using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 class CantTouchThisBuildReport : IPostprocessBuildWithReport
 {
@@ -22,7 +21,7 @@ class CantTouchThisBuildReport : IPostprocessBuildWithReport
         Scene builtScene = SceneManager.GetSceneByBuildIndex(0);
         var logDir = Directory.CreateDirectory(Path.GetDirectoryName(report.summary.outputPath) + @"\logs");
         UnityEngine.Debug.Log(logDir.FullName);
-        foreach (string assemblyName in new[] { "ModularAgents", "Mujoco", "MLAgents" })
+        foreach (string assemblyName in new[] { "ModularAgents", "Mujoco", "MLAgents", "CSharp" })
         {
             WriteSceneSummaryForAssemblyName(builtScene, assemblyName, logDir.FullName + $"/summary_{assemblyName}.json");
         }

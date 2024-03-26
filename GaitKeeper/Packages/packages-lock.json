@@ -1,25 +1,25 @@
 {
   "dependencies": {
     "com.github.mj-unity-extensions": {
-      "version": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#v1.2-beta",
+      "version": "https://github.com/Balint-H/modular-agents.git?path=mj-unity-extensions#feature/mj-313",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "org.mujoco": "2.3.1"
       },
-      "hash": "8a5335848ed0c2333c4e85882cb0cc0a95c32092"
+      "hash": "665f638b65f4dfeda95b717569710f8cd6a199b9"
     },
     "com.github.modular-agents.core": {
-      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/core#v1.2-beta",
+      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/core#feature/mj-313",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ml-agents": "2.2.1"
       },
-      "hash": "8a5335848ed0c2333c4e85882cb0cc0a95c32092"
+      "hash": "665f638b65f4dfeda95b717569710f8cd6a199b9"
     },
     "com.github.modular-agents.mujoco": {
-      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#v1.2-beta",
+      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/mujoco#feature/mj-313",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -27,14 +27,14 @@
         "com.github.mj-unity-extensions": "0.1.0",
         "org.mujoco": "2.3.1"
       },
-      "hash": "8a5335848ed0c2333c4e85882cb0cc0a95c32092"
+      "hash": "665f638b65f4dfeda95b717569710f8cd6a199b9"
     },
     "com.github.modular-agents.shared-assets": {
-      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/shared-assets#v1.2-beta",
+      "version": "https://github.com/Balint-H/modular-agents.git?path=modular-agents/shared-assets#feature/mj-313",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "8a5335848ed0c2333c4e85882cb0cc0a95c32092"
+      "hash": "665f638b65f4dfeda95b717569710f8cd6a199b9"
     },
     "com.github.motion-match": {
       "version": "file:../../motion-match",
@@ -166,6 +166,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.playablegraph-visualizer": {
+      "version": "0.2.1-preview.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.recorder": {
       "version": "4.0.1",
       "depth": 0,
@@ -244,11 +251,11 @@
       "url": "https://packages.unity.com"
     },
     "org.mujoco": {
-      "version": "https://github.com/Balint-H/mujoco.git?path=unity#feature/unity-hmap-dyn",
+      "version": "https://github.com/Balint-H/mujoco.git?path=unity#feature/unity-hfield-context",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "2c024164eab56ccea4c4785c4c7e27f64254c916"
+      "hash": "0fcc68ea24a7bfbc6cf984689c0f544ca0db46ea"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

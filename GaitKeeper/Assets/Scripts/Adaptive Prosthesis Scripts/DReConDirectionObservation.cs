@@ -18,7 +18,7 @@ public class DReConDirectionObservation : ObservationSource
     public override void FeedObservationsToSensor(VectorSensor sensor)
     {
         RootProjection curRefFrame = motionSynthesizer.CurrentReferenceFrame;
-        var inputFeatures = curRefFrame.InverseTransform(inputTrajectorySource.AnalogueDirection);
+        var inputFeatures = curRefFrame.InverseTransformDirection(inputTrajectorySource.AnalogueDirection);
         sensor.AddObservation(inputFeatures);
 
         

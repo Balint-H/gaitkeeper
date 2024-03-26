@@ -34,7 +34,7 @@ public readonly struct RootProjection
     /// </summary>
     public float YEuler { get => -Mathf.Atan2(right.z, right.x) * Mathf.Rad2Deg; }
 
-    public Vector2 InverseTransform( Vector2 vec)
+    public Vector2 InverseTransformDirection( Vector2 vec)
     {
         Vector3 r = right.normalized;
         return new Vector2(r.x*vec.x + r.z*vec.y, -r.z*vec.x + r.x*vec.y);
@@ -45,6 +45,11 @@ public readonly struct RootProjection
 public class MMController: MonoBehaviour
 {
     MMAnimator animator;
+    public MMAnimator Animator
+    {
+        get => animator;
+    }
+
     [SerializeField]
     Transform model = default;
     [SerializeField]
@@ -53,6 +58,10 @@ public class MMController: MonoBehaviour
     [SerializeField]
     MMDataset matchingDataset;
     MotionMatcher motionMatcher;
+    public MotionMatcher MotionMatcher
+    {
+        get => motionMatcher;
+    }
     MotionMatcher.MMFrame foundFrame;
 
     [SerializeField]
@@ -86,7 +95,9 @@ public class MMController: MonoBehaviour
     [SerializeField]
     bool updateAlone;
 
-    public EventHandler frameReadyHandler;
+    public EventHandler FrameReadyHandler;
+    public Action ShiftPerformed;
+    public Action PreBlend;
 
     public EventHandler Handler { get => StepOnTrigger; }
 
@@ -124,8 +135,12 @@ public class MMController: MonoBehaviour
     void Awake()
     {
         input = inputObject.GetComponent<IMMInput>();
+        Animator runtimeAnimator;
+        if (!model.GetComponentInChildren<Animator>()) runtimeAnimator = model.GetChild(0).gameObject.AddComponent<UnityEngine.Animator>();
+        else runtimeAnimator = model.GetComponentInChildren<Animator>();
+        runtimeAnimator.updateMode = AnimatorUpdateMode.AnimatePhysics;
         //Don't need to instantiate as m_anim is just a struct
-        animator.Configure(model.GetChild(0).gameObject.AddComponent<UnityEngine.Animator>(), matchingDataset.motionList.Select(x => x.clip).Concat(new[]{idleAnim}).ToList(), avatar, removeIdleIK: removeIdleIK);
+        animator.Configure(runtimeAnimator, matchingDataset.motionList.Select(x => x.clip).Concat(new[]{idleAnim}).ToList(), avatar, removeIdleIK: removeIdleIK);
         motionMatcher = new MotionMatcher(matchingDataset, settings.weights, settings.maxVelocity);
         if (inertializer) inertializer.Initialize(fauxRoot, blendTime);
         matchDelayCountdown = 0;
@@ -177,6 +192,7 @@ public class MMController: MonoBehaviour
                     model.rotation = rotDiff * model.rotation;
                     model.position += oldHip.position - new Vector3(fauxRoot.position.x, 0, fauxRoot.position.z);
                     transitionState = TransitionState.Blend;
+                    ShiftPerformed?.Invoke();
                     break;
                 }
 
@@ -198,7 +214,7 @@ public class MMController: MonoBehaviour
                 {
                     transitionState = TransitionState.Playing;
                     if (inertializer) inertializer.BlendStep(dT);
-                    frameReadyHandler?.Invoke(this, EventArgs.Empty);
+                    FrameReadyHandler?.Invoke(this, EventArgs.Empty);
                     return;
 
                 }
@@ -211,14 +227,14 @@ public class MMController: MonoBehaviour
         {
        
             if (inertializer) inertializer.BlendStep(dT);
-            frameReadyHandler?.Invoke(this, EventArgs.Empty);
+            FrameReadyHandler?.Invoke(this, EventArgs.Empty);
             return;
         }
         matchDelayCountdown = ++matchDelayCountdown % settings.skipFactor;
         if (matchDelayCountdown == 0)
         {
             RootProjection curRefFrame = CurrentReferenceFrame;
-            var inputFeatures = input.CurrentTrajectoryAndDirection.Select(v => curRefFrame.InverseTransform(v)).ToList();
+            var inputFeatures = input.CurrentTrajectoryAndDirection.Select(v => curRefFrame.InverseTransformDirection(v)).ToList();
 
             if ((inputFeatures[0] - inputFeatures[1]).magnitude < idleLimit)
             {
@@ -232,7 +248,7 @@ public class MMController: MonoBehaviour
             {
                 var queryFrame = CurFrame;
                 if (queryFrame.ClipIdx == animator.ClipCount - 1) queryFrame = settings.StartingFrame;
-                foundFrame = motionMatcher.Match(inputFeatures, queryFrame);
+                foundFrame = FindFrame(inputFeatures, queryFrame);
 
                 if (!foundFrame.IsClose(CurFrame, settings.skipTolerance))
                 {
@@ -241,8 +257,22 @@ public class MMController: MonoBehaviour
             }
         }
 
+        PreBlend?.Invoke();
         if (inertializer) inertializer.BlendStep(dT);
-        frameReadyHandler?.Invoke(this, EventArgs.Empty);
+        FrameReadyHandler?.Invoke(this, EventArgs.Empty);
+    }
+
+    protected virtual MotionMatcher.MMFrame FindFrame(List<Vector2> inputFeatures, MotionMatcher.MMFrame queryFrame) => MotionMatcher.Match(inputFeatures, queryFrame);
+
+
+    public void JumpToTime(double time)
+    {
+        animator.JumpToTime(time);
+    }
+
+    public void EvaluateCurrentPose()
+    {
+        animator.Evaluate();
     }
 
     private void FixedUpdate()
