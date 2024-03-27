@@ -9,8 +9,9 @@ using UnityEngine.Playables;
 public struct MMAnimator
 {
 	PlayableGraph Graph;
-	AnimationMixerPlayable Mixer;
-	public int ClipCount
+    public AnimationMixerPlayable Mixer { get; private set; }
+    public AnimationPlayableOutput Output { get; private set; }
+    public int ClipCount
 	{
 		get { return Mixer.GetInputCount(); }
 	}
@@ -34,17 +35,16 @@ public struct MMAnimator
         {
 			(AnimationClip clip, int idx) = tup;
 			AnimationClipPlayable clipPlayable = AnimationClipPlayable.Create(Graph, clip);
-			if (idx == sourceClips.Count - 1 && removeIdleIK)
-			{
-				clipPlayable.SetApplyPlayableIK(false);
-				clipPlayable.SetApplyFootIK(false);  // For the Idle animation
-			}
+
+			clipPlayable.SetApplyPlayableIK(false);
+			clipPlayable.SetApplyFootIK(false);  // For the Idle animation
+			
 			clipPlayable.Pause();
 			Mixer.ConnectInput(idx, clipPlayable, 0);
 		}
 		 
-		AnimationPlayableOutput output = AnimationPlayableOutput.Create(Graph, "MotionMatchedHumanoid", animator);
-		output.SetSourcePlayable(Mixer);
+        Output = AnimationPlayableOutput.Create(Graph, "MotionMatchedHumanoid", animator);
+		Output.SetSourcePlayable(Mixer);
 	}
 
 	public void Play()
